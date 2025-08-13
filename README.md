@@ -1,5 +1,10 @@
-<img src=" IBM Logo.png" alt=" IBM Logo" width="200"/>IBM ML Course 4 — Wholesale Customer Segmentation (Unsupervised ML)</h1>
+#<img src="IBM%20Logo.png" alt="IBM Logo" width="40"/> IBM ML Course 4 — Wholesale Customer Segmentation (Unsupervised ML)
 
+![Certificate](certificate.png)
+![Badge](wholesale-customer-segmentation.png)
+
+Wholesale customer segmentation using unsupervised machine learning techniques such as clustering and dimensionality reduction (PCA, t-SNE, UMAP).  
+Built in Google Colab using Python (Pandas, Scikit-learn, Matplotlib, Seaborn) as part of the IBM Data Science curriculum on Coursera.
 
 ---
 
