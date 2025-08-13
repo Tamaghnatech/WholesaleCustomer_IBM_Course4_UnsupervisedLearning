@@ -1,6 +1,6 @@
 # IBM ML Course 4 — Wholesale Customer Segmentation (Unsupervised ML)
 
-![Certificate](certificate.png){: style="width:75%"}  
+![Certificate](certificate.png) 
 <img src="unsupervised-machine-learning.png" alt="Badge" width="110"/>
 
 ---
