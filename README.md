@@ -1,10 +1,5 @@
-<h1 align="center"><img src="IBM Logo.png" alt="IBM Logo" width="200"/>IBM ML Course 4 — Wholesale Customer Segmentation (Unsupervised ML)</h1>
+<img src=" IBM Logo.png" alt=" IBM Logo" width="200"/>IBM ML Course 4 — Wholesale Customer Segmentation (Unsupervised ML)</h1>
 
-<p align="center">
-  <a href="https://www.credly.com/badges/XXXXX">
-    <img src="https://images.credly.com/size/340x340/images/your_ibm_badge.png" alt="IBM Badge" width="160"/>
-  </a>
-</p>
 
 ---
 
