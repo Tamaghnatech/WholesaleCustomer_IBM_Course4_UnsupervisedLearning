@@ -1,149 +1,90 @@
-# IBM ML Course 4 — Wholesale Customer Segmentation (Unsupervised ML)
+<h1 align="center"><img src="IBM Logo.png" alt="IBM Logo" width="200"/>IBM ML Course 4 — Wholesale Customer Segmentation (Unsupervised ML)</h1>
 
-![Certificate](certificate.png) 
-<img src="unsupervised-machine-learning.png" alt="Badge" width="110"/>
-
----
-
-## 📖 Executive Summary
-This project delivers an **end-to-end unsupervised machine learning pipeline** for **Wholesale Customer Segmentation** using purchase data.  
-The aim is to **uncover hidden patterns** in customer purchasing behaviors and translate them into actionable business insights for targeted marketing, optimized inventory, and sales strategy.
-
-The work was completed as part of the  
-**IBM Machine Learning Professional Certificate – Course 4: Unsupervised Learning**.  
-It blends **statistical insight, dimensionality reduction, and clustering algorithms** into a reproducible, production-ready workflow.
+<p align="center">
+  <a href="https://www.credly.com/badges/XXXXX">
+    <img src="https://images.credly.com/size/340x340/images/your_ibm_badge.png" alt="IBM Badge" width="160"/>
+  </a>
+</p>
 
 ---
 
-## 🛠️ Technology & Tools
+## 📜 Project Overview
+This project is part of **IBM Machine Learning Professional Certificate — Course 4: Unsupervised Machine Learning**.  
+The goal is to perform **customer segmentation** for a wholesale distributor using **unsupervised learning techniques** such as **K-Means**, **Agglomerative Clustering**, and **DBSCAN**, and dimensionality reduction methods like **PCA**, **t-SNE**, and **UMAP**.
 
-**Languages & Environment**  
-- Python (3.11)  
-- Jupyter Notebook & Google Colab  
-
-**Core Libraries**  
-- `numpy`, `pandas` — data handling  
-- `matplotlib`, `seaborn`, `plotly` — visualization  
-- `scikit-learn` — clustering, preprocessing, PCA, t-SNE, UMAP  
-- `yellowbrick` — model diagnostics  
-- `scipy` — hierarchical clustering  
+The final output includes **visual comparisons** of clustering methods, PCA loadings, and projections, enabling a data-driven segmentation strategy.
 
 ---
 
 ## 📂 Dataset
-
-**Source:** UCI Machine Learning Repository — *Wholesale customers data set*  
-
-**Features**  
-- Annual spending on product categories: *Fresh*, *Milk*, *Grocery*, *Frozen*, *Detergents_Paper*, *Delicassen*  
-- Channels: *Hotel/Restaurant/Cafe* (HORECA) vs *Retail*  
-- Regions: *Lisbon*, *Oporto*, *Other*
+**Source:** [Wholesale Customers Dataset](https://archive.ics.uci.edu/ml/datasets/wholesale+customers)  
+- **Rows:** 440  
+- **Columns:** 8 (Annual spending on different product categories + Region & Channel)
+- **Target Variable:** None (unsupervised)
+- **Preprocessing:** StandardScaler applied, outlier removal using IQR, dimensionality reduction.
 
 ---
 
-## 🔬 Methodology
+## 🛠 Techniques & Methods Used
+- **Exploratory Data Analysis (EDA)**
+  - Correlation heatmaps
+  - Distribution plots
+  - Pairwise scatter plots
 
-### 1️⃣ Data Exploration & Preprocessing
-- **Null Values**: Confirmed dataset completeness.  
-- **Scale Normalization**: Applied `StandardScaler` to prevent dominance of high-scale features.  
-- **Correlation Analysis**: Heatmap revealed high correlation between *Grocery* and *Detergents_Paper*.  
+- **Dimensionality Reduction**
+  - **PCA** (Scree plots, loadings, biplots)
+  - **t-SNE**
+  - **UMAP**
 
-**Visuals:**  
-![Correlation Heatmap](correlation heatmap.png)
+- **Clustering Algorithms**
+  - K-Means (Elbow Method, Silhouette Score)
+  - Agglomerative Clustering
+  - DBSCAN
 
----
-
-### 2️⃣ Dimensionality Reduction
-**Principal Component Analysis (PCA)**  
-- Reduced feature space while retaining ~85% of variance in first few components.  
-- PCA Loadings identified **Grocery** & **Detergents_Paper** as heavy influencers for PC1.
-
-**Non-linear Embeddings:**  
-- **t-SNE**: Captured non-linear separations for better cluster intuition.  
-- **UMAP**: Produced dense, interpretable manifolds for DBSCAN clustering.
-
-**Visuals:**  
-![PCA Scree](pca_scree_and_cumulative.png)  
-![PCA Projection](pca_proj_pca1_pca2.png)  
-![t-SNE Projection](t-SNE projection.png)  
-![UMAP Projection](UMAP projection.png)
+- **Evaluation**
+  - Silhouette Coefficient
+  - Davies–Bouldin Index
+  - Visual cluster separation
 
 ---
 
-### 3️⃣ Clustering Algorithms & Evaluation
-
-#### K-Means
-- **Optimal K**: Determined via Elbow & Silhouette methods.
-- Produced **well-separated, interpretable clusters**.
-
-![K-Means Elbow](lmeans_elbow.png)
-
-#### Agglomerative Clustering
-- Applied to PCA-transformed data.
-- Dendrogram analysis supported K=3 segmentation.
-
-![PCA + Agglomerative Clustering](pca_agglomerative.png)
-
-#### DBSCAN
-- Applied to UMAP embedding.
-- Useful for **detecting noise/outliers** alongside core clusters.
-
-![UMAP + DBSCAN](UMAP_DBSCAN.png)
+## 📊 Key Visuals
+| Visualization | Description |
+|---------------|-------------|
+| **Correlation Heatmap** | Shows relationships between product categories. |
+| **PCA Scree Plot & Cumulative Variance** | Helps decide number of components. |
+| **PCA Loadings** | Feature contribution to each principal component. |
+| **PCA, t-SNE, UMAP Projections** | Visual separation of customer segments. |
+| **Algorithm Comparison Plot** | Silhouette/Davies-Bouldin scores for all algorithms. |
 
 ---
 
-### 4️⃣ Model Comparison
-All algorithms were benchmarked on **Silhouette Score** and **Cluster Cohesion**.
-
-**Visual:**  
-![All Algorithm Comparison](allalgocompare.png)
-
----
-
-## 📊 Results & Business Insights
-
-1. **Three primary customer segments** emerged:  
-   - *High Grocery/Detergents buyers* — likely large retailers.  
-   - *Fresh-focused buyers* — possible restaurants or produce-heavy businesses.  
-   - *Balanced spenders* — medium-size retail with diversified orders.
-
-2. **PCA Loadings** revealed:
-   - *Grocery* & *Detergents_Paper* drive differentiation for large retailers.
-   - *Fresh* dominates in foodservice-heavy segments.
-
-3. **Actionable Recommendations**:
-   - **Retailers**: Push bundled offers for grocery + detergents.
-   - **HORECA clients**: Focus promotions on fresh produce and perishables.
-   - **Balanced buyers**: Explore cross-category loyalty programs.
+## 🚀 Results
+- **Optimal K** for K-Means = **3**
+- PCA captured **85% variance** in 3 components.
+- DBSCAN revealed some noise/outlier customers not grouped in other methods.
+- t-SNE & UMAP gave better **cluster separation** in low-dimensional space.
 
 ---
 
-## 🎓 Certificate
-![IBM Certificate](certificate.png)
+## 📌 Learning Outcomes
+- Applied **unsupervised ML** to a real-world dataset.
+- Compared **clustering algorithms** effectively.
+- Understood **dimensionality reduction’s role** in cluster visualization.
+- Produced **publication-ready** visualizations.
 
 ---
 
-## 🏆 Badge
-<img src="unsupervised-machine-learning.png" alt="Badge" width="110"/>
+## 🏆 Credential
+**IBM Machine Learning Professional Certificate – Course 4**  
+[Verify Credential](https://www.credly.com/badges/XXXXX)
 
 ---
 
-## 📁 Repository Structure
-```plaintext
-├── data/
-│   └── W_cust_data.csv
-├── notebooks/
-│   ├── EDA_and_Preprocessing.ipynb
-│   ├── Dimensionality_Reduction.ipynb
-│   ├── Clustering_Experiments.ipynb
-├── results/
-│   ├── correlation_heatmap.png
-│   ├── pca_scree_and_cumulative.png
-│   ├── pca_proj_pca1_pca2.png
-│   ├── t-SNE_projection.png
-│   ├── UMAP_projection.png
-│   ├── lmeans_elbow.png
-│   ├── pca_agglomerative.png
-│   ├── UMAP_DBSCAN.png
-│   ├── allalgocompare.png
-└── README.md
+## 📬 Contact
+**Tamaghna Nag**  
+📍 London, UK | Kolkata, India  
+📧 tamaghnanag04@gmail.com  
+🌐 [Portfolio](https://tamaghnatech.in) | [GitHub](https://github.com/Tamaghnatech) | [LinkedIn](https://www.linkedin.com/in/tamaghna99/)
+
+---
