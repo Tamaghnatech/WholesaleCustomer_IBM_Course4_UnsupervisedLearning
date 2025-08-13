@@ -1,4 +1,4 @@
-# ![IBM Logo](https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg) IBM ML Course 4 — Wholesale Customer Segmentation (Unsupervised ML)
+# IBM ML Course 4 — Wholesale Customer Segmentation (Unsupervised ML)
 
 ![Certificate](certificate.png){: style="width:75%"}  
 <img src="unsupervised-machine-learning.png" alt="Badge" width="110"/>
